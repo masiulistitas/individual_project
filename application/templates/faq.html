@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block header %}
+
+<header class="bg-dark py-5">
+            <div class="container px-4 px-lg-5 my-5">
+                <div class="text-center text-white">
+                    <h1 class="display-4 fw-bolder">Frequently asked questions</h1>
+                </div>
+            </div>
+</header>
+<br>
+
+<section class="pt-3" style="max-width: 60%; margin:0 auto;">
+<div id="accordion">
+  <div class="card">
+    <div class="card-header" id="headingTwo">
+      <h5 class="mb-0">
+        <button class="btn btn-link collapsed text-color" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+          Can I update my application once I've submitted it?
+        </button>
+      </h5>
+    </div>
+    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+      <div class="card-body">
+      No, once you have submitted your application for a specific job you cannot make any changes to it. If the company is asking for other documents, you can submit them separately.
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" id="headingFour">
+      <h5 class="mb-0">
+        <button class="btn btn-link collapsed text-color" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="true" aria-controls="collapseFour">
+          How can I register as a company?
+        </button>
+      </h5>
+    </div>
+    <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
+      <div class="card-body">
+      At the top of this page you can see Register button. Please follow field information accordingly, make sure you have entered your company name and checked box at the bottom of the page.
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" id="headingThree">
+      <h5 class="mb-0">
+        <button class="btn btn-link collapsed text-color" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+          How do I apply for job?
+        </button>
+      </h5>
+    </div>
+    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+      <div class="card-body">
+        Once you have found a job you are interested in applying for and have read the Job Description, click on the ‘Apply’ button at the bottom of the job page. If you haven’t registered on our online system, you will need to create account.
+      </div>
+    </div>
+
+  </div>
+</div>
+</section>
+
+<br>
+<br>
+
+{% endblock header %}
+

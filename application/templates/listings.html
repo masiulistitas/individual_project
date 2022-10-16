@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<section class="pt-3" style="max-width: 60%; margin:0 auto;">
+             <form action="{% url 'search' %}" method="get" class="form-inline d-flex">
+                 <input name="query" class="form-control mr-sm-1 mr-5" type="text" placeholder="Please enter job title/job location/skills" aria-label="Search">
+                 <button class="btn btn-outline-success my-sm-0 ml-2 button-margin" type="submit">Search</button>
+             </form>
+        </section>
+        <section class="py-5 media" style="max-width: 60%; margin:0 auto;">
+                    {% for listing in listings %}
+                    <div class="card mb-2 p-2 container-sm " style="max-width: 100%;">
+
+                        <div class="row g-0">
+
+                            <div class="col-sm-1 d-flex align-items-center" >
+                                <img src="/media/{{ listing.image }}" class="card-img-top" alt="...">
+                            </div>
+
+                            <div class="col-sm-11 ">
+                                <div class="card-body">
+                                    <a href="/details/{{listing.id}}/" target="_blank">
+                                    <h5 class="card-title">{{ listing.title }}</h5>
+                                    <p class="card-text">{{ listing.description|safe }}</p>
+                                    </a>
+                                    <br>
+                                    <br>
+                                    <p class="card-text" style="color:green;">The job ad will open in a new tab!
+                                    </p>
+
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <small class="text-muted">Posted: {{ listing.creation_date }}</small>
+                                <br>
+                                <small class="text-muted">Location: {{ listing.location }}</small>
+                                <br>
+                                <small class="text-muted">Application deadline: {{ listing.end_date }}</small>
+                            </div>
+
+                        </div>
+
+                    </div>
+            {% endfor %}
+        </section>
+
+
+{% endblock content %}

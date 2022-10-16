@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block header %}
+
+<header class="bg-dark py-5">
+            <div class="container px-4 px-lg-1 my-5">
+                <div class="text-center text-white">
+                    <h1 class="display-4 fw-bolder">Find your dream job!</h1>
+                    <p class="lead fw-normal text-white-50 mb-0">Your opportunity is just in front of you!</p>
+                    <a href="{% url 'listings' %}" class="btn btn-outline-success mt-3" style="width:20%; min-width:160px;">Search for Jobs &rarr;</a>
+                </div>
+            </div>
+</header>
+<img src="https://equitablegrowth.org/wp-content/uploads/2022/02/Online-job-search.jpg" alt="" style="width: 100%; height: 600px;">
+{% endblock header %}

@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+        <section class="py-5 media" style="max-width: 70%; margin:0 auto;">
+            <div class="row">
+                <div class="col-sm-3 first-box">
+                    <div><h5>{{ job.title }}</h5></div><hr>
+                    <div class="col-sm-4" >
+                                <img src="{{job.image.url}}" class="card-img-top" alt="...">
+                            </div><hr>
+                    <div>
+                        <strong>Work place location</strong>
+                        <p>{{ job.location }}</p>
+                    </div><hr>
+                    <div>
+                        <p>
+                            <strong>Important dates</strong>
+                        </p>
+                        <p>Created: {{ job.creation_date }}</p>
+                        <p>Application deadline: {{ job.end_date }}</p>
+                        <p>Date of employment: {{ job.start_date }}</p>
+                    </div><hr>
+                    <div>
+                        <p><strong>Application</strong></p>
+                             {% if user.is_authenticated %}
+                                {% if user.is_staff %}
+                                    <p>You're a company, you cannot apply</p>
+                                {% else %}
+                                    <a href="/job_apply/{{job.id}}/" class="btn btn-outline-success">Apply For The Job</a>
+                                {% endif %}
+                             {% else %}
+                                <p>Please login to apply</p>
+                             {% endif %}
+                    </div><hr>
+                    <div>
+                        <p><strong>Job ID</strong></p>
+                        <p>{{ job.id }}</p>
+                    </div>
+                </div>
+                <div class="col-sm-9 details-box">
+                    <div><h2>{{ job.title }}</h2></div><br>
+                    <div>{{ job.description|safe }}</div>
+                </div>
+            </div>
+        </section>
+{% endblock content %}
+

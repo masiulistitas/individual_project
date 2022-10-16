@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<section class="py-5 media" style="max-width: 60%; margin:0 auto;">
+                    {% for company in companies %}
+                    <div class="card mb-2 p-2 container-sm " style="max-width: 100%;">
+
+                        <div class="row g-0">
+
+                            <div class="col-sm-1 d-flex align-items-center" >
+                                <img src="/media/{{ company.image }}" class="card-img-top" alt="...">
+                            </div>
+
+                            <div class="col-sm-11 ">
+                                <div class="card-body">
+                                    <a href="{% url 'details' %}" target="_blank">
+                                    <p class="card-text">Company name: {{ company.company_name }}</p>
+                                    <h5 class="card-title">Phone:{{ company.phone }}</h5>
+                                    <p class="card-text">Gender:{{ company.gender }}</p>
+                                    <p class="card-text">Status:{{ company.status }}</p>
+                                    <p class="card-text">Type:{{ company.type }}</p>
+
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+            {% endfor %}
+        </section>
+
+
+{% endblock content %}

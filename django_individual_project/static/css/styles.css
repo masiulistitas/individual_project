@@ -1,0 +1,55 @@
+a {
+color: inherit; /* blue colors for links too */
+  text-decoration: inherit; /* no underline */
+}
+
+a:hover {
+  color: green;
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+button.button-margin {
+margin-left:5px;
+}
+
+button.text-color {
+  color: green;
+  text-decoration:none;
+}
+
+div.p-3 {
+background-color:none;
+min-width: 215px;
+margin-bottom:2rem;
+-webkit-transition: background-color 1000ms linear;
+-ms-transition: background-color 1000ms linear;
+transition: background-color 1000ms linear;
+}
+
+div.first-box {
+border: 1px solid lightgray;
+padding:1rem;
+}
+
+div.details-box {
+border: 1px solid lightgray;
+border-left:none;
+padding:1rem;
+}
+
+div.p-3:hover {
+background-color: rgba(76, 175, 80, 0.5)
+}
+
+
+
+@media only screen and (max-width: 575px) {
+
+    section.py-5, section.pt-3 {
+    max-width: 90% !important;
+    margin:0 auto !important;"
+    }
+
+}
+

@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block header %}
+
+<header class="bg-dark py-5">
+            <div class="container px-4 px-lg-5 my-5">
+                <div class="text-center text-white">
+                    <h1 class="display-4 fw-bolder">Find your dream job!</h1>
+                    <p class="lead fw-normal text-white-50 mb-0">Your opportunity is just in front of you!</p>
+                    <a href="{% url 'listings' %}" class="btn btn-outline-success mt-3" style="width:20%; min-width:160px;">Search for Jobs &rarr;</a>
+                </div>
+            </div>
+</header>
+<br>
+<br>
+<form method="POST"> {% csrf_token %}
+    <div class="container mt-5">
+        <div class="mb-3">
+            <label for="username" class="form-label"><i style="font-weight: bold;">Username/Company Name</i></label>
+            <input type="text" class="form-control" id="username" name="username" placeholder="Enter Username">
+        </div>
+        <div class="mb-3">
+            <label for="password" class="form-label"><i style="font-weight: bold;">Password</i></label>
+            <input type="password" class="form-control" id="password" name="password" placeholder="Enter Password">
+        </div>
+        <br>
+        <input type="submit" value="Submit" class="btn btn-outline-success">
+
+    </div>
+    <div class="card-footer text-center">
+                            <div class="small">
+                                <a href="{% url 'register' %}">Don't have an account yet? Go to signup</a><br>
+                                <a href="{% url 'password_reset' %}"><i>Forgot Password?</i></a>
+                            </div>
+    </div>
+</form>
+<br>
+<br>
+{% endblock header %}

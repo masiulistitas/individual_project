@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<section class="py-5 media" style="max-width: 60%; margin:0 auto;">
+<div class="container mt-4">
+    <h5>List of companies to apply!</h5>
+    <br>
+<table class="table table-hover" id="example">
+    <thead>
+        <tr>
+            <th>Company Name</th>
+            <th>Job Title</th>
+            <th>Salary</th>
+            <th>Location</th>
+            <th>Created On</th>
+            <th>Apply</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for job in jobs %}
+        <tr>
+            <td>{{job.company.user.username}}</td>
+            <td>{{job.title}}</td>
+            <td>{{job.salary}}</td>
+            <td>{{job.location}}</td>
+            <td>{{job.creation_date}}</td>
+
+            {% if job.id in data %}
+            <td><a class="btn btn-success">Applied</a></td>
+            {% else %}
+            <td><a href="/details/{{job.id}}/" class="btn btn-outline-success">Apply</a></td>
+            {% endif %}
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+</div>
+        </section>
+
+
+{% endblock content %}
+
+
+
+
+

@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+        <section class="py-5 media" style="max-width: 60%; margin:0 auto;">
+            <div class="container mt-4">
+    <table class="table table-hover" id="example">
+        <thead>
+            <tr>
+                <th>Sr.No</th>
+                <th>Job Title</th>
+                <th>Applicant</th>
+                <th>Email</th>
+                <th>Applied On</th>
+                <th>Resume</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in application %}
+            <tr>
+                <td>{{forloop.counter}}</td>
+                <td>{{i.job}}</td>
+                <td>{{i.applicant}}</td>
+                <td>{{i.applicant.user.email}}</td>
+                <td>{{i.apply_date}}</td>
+                <td><a href="{{i.resume.url}}" class="btn"><i class="fa fa-file"></i>Resume</a></td>
+                <td><a href="/delete_application/{{i.id}}/" class="btn"><i class="fa fa-trash"></i>Delete</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    </div>
+        </section>
+
+{% endblock content %}
+
+

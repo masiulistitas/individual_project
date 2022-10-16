@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block header %}
+
+<header class="bg-dark py-5">
+            <div class="container px-4 px-lg-5 my-5">
+                <div class="text-center text-white">
+                    <h1 class="display-4 fw-bolder">Find your dream job!</h1>
+                    <p class="lead fw-normal text-white-50 mb-0">Your opportunity is just in front of you!</p>
+                    <a href="{% url 'listings' %}" class="btn btn-outline-success mt-3" style="width:20%; min-width:160px;">Search for Jobs &rarr;</a>
+                </div>
+            </div>
+</header>
+<br>
+<br>
+<div class="maindiv jumbotron container">
+    <form method="POST"  action="">
+        {% csrf_token %}
+        {{form.as_p}}
+        <input class="btn btn-outline-success btn-lg" type="submit" value="Register">
+        <div class="card-footer text-center">
+                            <div class="small">
+                                <a href="{% url 'login' %}">Already have an account? Login!</a><br>
+                            </div>
+    </div>
+    </form>
+</div>
+<br>
+<br>
+{% endblock header %}
