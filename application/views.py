@@ -36,6 +36,8 @@ def search(request):
 
 
 def company_ads(request):
+    if not request.user.is_authenticated:
+        return redirect('/login/')
     companies = Company.objects.get(user=request.user)
     company_listings = Job.objects.filter(company=companies)
 
@@ -43,6 +45,8 @@ def company_ads(request):
 
 
 def company_add(request):
+    if not request.user.is_authenticated:
+        return redirect('/login/')
     if request.method == "POST":
         title = request.POST['job_title']
         start_date = request.POST['start_date']
@@ -64,6 +68,8 @@ def company_add(request):
 
 
 def edit_job(request, id):
+    if not request.user.is_authenticated:
+        return redirect('/login/')
     job = Job.objects.get(id=id)
     if request.method == "POST":
         title = request.POST['job_title']
@@ -94,18 +100,24 @@ def edit_job(request, id):
 
 
 def delete_job(request, id):
+    if not request.user.is_authenticated:
+        return redirect('/login/')
     job = Job.objects.filter(id=id)
     job.delete()
     return redirect('company_ads')
 
 
 def all_applicants(request):
+    if not request.user.is_authenticated:
+        return redirect('/login/')
     company = Company.objects.get(user=request.user)
     application = Application.objects.filter(company=company)
     return render(request, "all_applicants.html", {'application':application})
 
 
 def all_jobs(request):
+    if not request.user.is_authenticated:
+        return redirect('/login/')
     jobs = Job.objects.filter().order_by('-start_date')
     applicant = JobSeeker.objects.get(user=request.user)
     apply = Application.objects.filter(applicant=applicant)
@@ -116,6 +128,8 @@ def all_jobs(request):
 
 
 def job_apply(request, id):
+    if not request.user.is_authenticated:
+        return redirect('/login/')
     applicant = JobSeeker.objects.get(user=request.user)
     job = Job.objects.get(id=id)
     if request.method == "POST":
@@ -126,6 +140,8 @@ def job_apply(request, id):
 
 
 def delete_application(request, id):
+    if not request.user.is_authenticated:
+        return redirect('/login/')
     application = Application.objects.filter(id=id)
     application.delete()
     return redirect('all_applicants')
